@@ -28,7 +28,7 @@
 
 /* Variable que indica el valor analógico obtenido del sensor */
 float Soilmoisture = 0;
-LiquidCrystal_I2C lcd ( 0x20, 16, 2 );   /*~ Instancia de la clase para el manejo de la pantalla ( Dirección I2C, columnas, filas ) ~*/
+LiquidCrystal_I2C lcd ( 0x27, 16, 2 );   /*~ Instancia de la clase para el manejo de la pantalla ( Dirección I2C, columnas, filas ) ~*/
 void setup( void ) {
    lcd.init( );
   
@@ -137,7 +137,7 @@ void loop( void ) {
   Serial.println ( " %" );
   /* Se manda encender los LEDs de acuerdo al nivel de humedad. */
   indicator ( Soilmoisture );
-  int soiHumedad= map (Soilmoisture, 0, 876, 0, 100);//}, 
+  int soiHumedad= map (Soilmoisture, 1023, 0, 0, 100);//}, 
   lcd.setCursor(0,0);
   //Imprimir el mensaje.
   lcd.print("Humedad ");
